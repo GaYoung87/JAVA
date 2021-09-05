@@ -1,0 +1,16 @@
+Every Java program consists of a collection of classes--nothing else. 
+A class is a template for creating a particular form of object. 
+Each object created by the template contains the same members, each of which is either a field or a method.
+A field is a ``container'' that holds a value. 
+A method is an operation on the fields of the object and any values that are passed as arguments to the method. 
+The objects created by a particular class template are called the instances or objects of that class. 
+Each instance contains the members specified in the class template.
+
+A member of a class has an identifier (defined above in Section 1.2.4) as its name. 
+For now, we will require all such names to be unique within a class. We will slightly relax this restriction when we discuss overloading in Section 1.11.4.
+Each member name must conform to the syntactic rules given for variables in Section 1.2.4.
+
+Java objects are a generalization of Scheme structs, because the collection of operations (methods) that operate on the instances of a class is determined by the class definition. 
+In Scheme, the set of operations for manipulating a struct is fixed (a constructor, a recognizer, field-accessors, and field-modifiers).
+
+The following Java program text defines a class Entry suitable for representing entries in the department directory program introduced in Section [*]:

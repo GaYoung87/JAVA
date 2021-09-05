@@ -1,4 +1,4 @@
-package Section2;
+package Section02;
 import java.util.Scanner;
 
 public class Code16 {

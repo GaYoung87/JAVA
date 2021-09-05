@@ -1,4 +1,4 @@
-package Section2;
+package Section02;
 
 public class Code17 {
 
