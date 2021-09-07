@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Index_Maker {
+public class Code04 {
 
-	// Code23과 동일 -> 객체를 이용한 표현
+	// Code23과 동일(Index Maker) -> 객체를 이용한 표현
 	
 	static Item [] items = new Item [100000];
 	// static String [] words = new String [100000];
