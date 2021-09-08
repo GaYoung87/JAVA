@@ -1,13 +1,13 @@
-package Section01;
+package Section02;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Code05 {
+public class Code09 {
 
 	// main class에는 static붙이고, 데이터 저장을 위한 class에는 static붙이지 않음
-	static MyRectangle1 [] rects = new MyRectangle1 [100];  // 배열 선언 = 배열 생성
+	static MyRectangle2 [] rects = new MyRectangle2 [100];  // 배열 선언 = 배열 생성
 	// 배열 선언 = 배열의 주소를 저장하는 참조변수일 뿐이다!!!
 	static int n = 0;  // 사각형 개수
 
@@ -23,20 +23,15 @@ public class Code05 {
 
 			while (in.hasNext()) {
 
-				rects[n] = new MyRectangle1();
+				
 
 				// rects[n].lu.x = in.nextInt(); 와 동일
 				int x = in.nextInt();
 				int y = in.nextInt();
 				int w = in.nextInt();
 				int h = in.nextInt();
-
-				// lu도 MyPoint1의 참조변수임 (width, height는 프리미티브타입)
-				rects[n].lu = new MyPoint1();
-				rects[n].lu.x = x;
-				rects[n].lu.y = y;
-				rects[n].width = w;
-				rects[n].height = h;
+				
+				rects[n] = new MyRectangle2(new MyPoint2(x, y), w, h);
 
 				n++;
 			}
@@ -51,7 +46,9 @@ public class Code05 {
 		bubbleSort();
 
 		for (int i = 0; i < n; i++) {
-			System.out.println(rects[i].lu.x + " " + rects[i].lu.y + " " + rects[i].width + " " + rects[i].height);
+			// 사각형에 대한 정보 제공
+			// System.out.println(rects[i].lu.x + " " + rects[i].lu.y + " " + rects[i].width + " " + rects[i].height);
+			System.out.println(rects[i].toString());
 		}
 	}
 
@@ -61,12 +58,12 @@ public class Code05 {
 		for (int i = n-1; i > 0; i--) {
 			for (int j = 0; j < i; j++) {
 
-				if (calcArea(rects[j]) > calcArea(rects[j+1])) {
+				if (rects[j].calcArea() > rects[j+1].calcArea()) {
 
 					// 값 변경
-					MyRectangle1 temp = rects[j];
-					rects[j] = rects[j+1];
-					rects[j+1] = temp;
+					MyRectangle2 temp = rects[j+1];
+					rects[j+1] = rects[j];
+					rects[j] = temp;
 
 				}
 			}
@@ -75,9 +72,4 @@ public class Code05 {
 
 	}
 	
-	
-	public static int calcArea(MyRectangle1 r) {
-		return r.width * r.height;
-	}
-
 }
